@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace SAttributes.Extensions
 {
@@ -11,7 +9,7 @@ namespace SAttributes.Extensions
     {
         public static void ConfigureSAttributes(this IServiceCollection service)
         {
-            service.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
+            service.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             service.Configure<ApiBehaviorOptions>(options =>
             {
