@@ -5,6 +5,7 @@ firstly you must type this
 
 ```c#
 ...
+services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 service.ConfigureSAttributes();
 ...
 ```
