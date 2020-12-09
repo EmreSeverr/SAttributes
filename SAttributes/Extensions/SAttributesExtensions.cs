@@ -9,8 +9,6 @@ namespace SAttributes.Extensions
     {
         public static void ConfigureSAttributes(this IServiceCollection service)
         {
-            service.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             service.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
