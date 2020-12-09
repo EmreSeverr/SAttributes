@@ -10,3 +10,5 @@ service.ConfigureSAttributes();
 ```
 
 command in the startup.cs file. You can start using it later.
+
+You can download the package from this link : https://www.nuget.org/packages/SAttribute/
