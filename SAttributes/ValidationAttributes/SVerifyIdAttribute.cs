@@ -27,7 +27,7 @@ namespace SAttributes.ValidationAttributes
                 else throw new InvalidOperationException("This attribute can only be used in data types that contain numbers.");
 
 
-                if (objectType.Name.ToLower() == "guid")
+                if (objectType.IsAssignableFrom(typeof(Guid)))
                 {
                     var guidRegex = @"(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}";
 
@@ -40,7 +40,7 @@ namespace SAttributes.ValidationAttributes
                     }
                 }
 
-                if (objectType.Name.ToLower() == "int")
+                if (objectType.IsAssignableFrom(typeof(int)))
                 {
                     var id = Convert.ToInt32(value);
 
