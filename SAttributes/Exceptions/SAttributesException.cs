@@ -6,9 +6,6 @@ namespace SAttributes.Exceptions
 {
     public class SAttributesException : Exception
     {
-        public SAttributesException(String message) : base(message)
-        {
-
-        }
+        public SAttributesException(String message) : base(message) { }
     }
 }

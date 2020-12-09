@@ -24,7 +24,7 @@ namespace SAttributes.ValidationAttributes
                 var objectType = value.GetType();
 
                 if (objectType.IsAssignableFrom(typeof(Guid)) || objectType.IsAssignableFrom(typeof(int))) { }
-                else throw new InvalidOperationException("Bu attribute sadece id tutan veri tiplerinde geçerlidir.");
+                else throw new InvalidOperationException("This attribute can only be used in data types that contain numbers.");
 
 
                 if (objectType.Name.ToLower() == "guid")

@@ -11,7 +11,7 @@ namespace SAttributes.Extensions
     {
         public static void ConfigureSAttributes(this IServiceCollection service)
         {
-            service.AddScoped<IHttpContextAccessor>();
+            service.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
 
             service.Configure<ApiBehaviorOptions>(options =>
             {

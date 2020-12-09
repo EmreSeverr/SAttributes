@@ -38,7 +38,7 @@ namespace SAttributes.ValidationAttributes
                 var objectType = value.GetType();
 
                 if (objectType.IsAssignableFrom(typeof(string))) { }
-                else throw new InvalidOperationException("Bu attribute sadece string veri tipinde geçerlidir.");
+                else throw new InvalidOperationException("This attribute is only available for data types that contain characters.");
 
                 var val = value.ToString();
 

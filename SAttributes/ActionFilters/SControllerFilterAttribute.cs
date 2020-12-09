@@ -10,7 +10,7 @@ namespace SAttributes.ActionFilters
 {
     public class SControllerFilterAttribute : ActionFilterAttribute
     {
-        public String DisabledProperties { get; set; }
+        public String RequirementDisabledProperties { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext actionContext)
         {
@@ -25,7 +25,7 @@ namespace SAttributes.ActionFilters
                 foreach (var item in modelErrors)
                     errors.Add(item.ErrorMessage);
 
-                var properties = GetProperties(DisabledProperties);
+                var properties = GetProperties(RequirementDisabledProperties);
 
                 if (!properties.IsNullOrEmpty())
                     foreach (var props in properties)
