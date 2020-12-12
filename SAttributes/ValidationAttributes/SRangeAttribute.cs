@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SAttributes.ValidationAttributes
 {
-    public sealed class SRangeAttribute : ValidationAttribute
+    public class SRangeAttribute : ValidationAttribute
     {
         private readonly int _MinValue;
         private readonly int _MaxValue;
@@ -30,7 +30,7 @@ namespace SAttributes.ValidationAttributes
             if (value == null || value.Equals(""))
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                return new ValidationResult(FormatErrorMessage(""));
+                return new ValidationResult(ErrorMessage);
             }
             else
             {
@@ -39,12 +39,12 @@ namespace SAttributes.ValidationAttributes
                 if (number < _MinValue)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
                 if (number > _MaxValue)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
             }
 

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SAttributes.ValidationAttributes
 {
-    public sealed class SStringLengthAttribute : ValidationAttribute
+    public class SStringLengthAttribute : ValidationAttribute
     {
         private readonly int _MinValue;
         private readonly int _MaxValue;
@@ -31,7 +31,7 @@ namespace SAttributes.ValidationAttributes
             if (value == null || value.Equals(""))
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                return new ValidationResult(FormatErrorMessage(""));
+                return new ValidationResult(ErrorMessage);
             }
             else
             {
@@ -45,12 +45,12 @@ namespace SAttributes.ValidationAttributes
                 if (val.Length < _MinValue)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
                 if (val.Length > _MaxValue)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
             }
 

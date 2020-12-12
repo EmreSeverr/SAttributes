@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace SAttributes.ValidationAttributes
 {
-    public sealed class SVerifyIdAttribute : ValidationAttribute
+    public class SVerifyIdAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -17,7 +17,7 @@ namespace SAttributes.ValidationAttributes
             if (value == null || value.Equals(""))
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                return new ValidationResult(FormatErrorMessage(""));
+                return new ValidationResult(ErrorMessage);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace SAttributes.ValidationAttributes
                     if (!isCorrect)
                     {
                         httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                        return new ValidationResult(FormatErrorMessage(""));
+                        return new ValidationResult(ErrorMessage);
                     }
                 }
 
@@ -47,7 +47,7 @@ namespace SAttributes.ValidationAttributes
                     if (id <= 0) 
                     {
                         httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                        return new ValidationResult(FormatErrorMessage(""));
+                        return new ValidationResult(ErrorMessage);
                     }
                 }
             }

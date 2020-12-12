@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SAttributes.ValidationAttributes
 {
-    public sealed class SRequiredAttribute : ValidationAttribute
+    public class SRequiredAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -14,7 +14,7 @@ namespace SAttributes.ValidationAttributes
             if (value == null || value.Equals(""))
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                return new ValidationResult(FormatErrorMessage(""));
+                return new ValidationResult(ErrorMessage);
             }
 
             return ValidationResult.Success;

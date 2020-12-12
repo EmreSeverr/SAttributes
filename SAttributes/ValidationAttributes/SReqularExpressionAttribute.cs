@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace SAttributes.ValidationAttributes
 {
-    public sealed class SReqularExpressionAttribute : ValidationAttribute
+    public class SReqularExpressionAttribute : ValidationAttribute
     {
         public bool IsRequired { get; set; } = true;
 
@@ -24,7 +24,7 @@ namespace SAttributes.ValidationAttributes
                 if (IsRequired)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
             }
             else
@@ -36,7 +36,7 @@ namespace SAttributes.ValidationAttributes
                 if (!isCorrect)
                 {
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(FormatErrorMessage(""));
+                    return new ValidationResult(ErrorMessage);
                 }
             }
 
