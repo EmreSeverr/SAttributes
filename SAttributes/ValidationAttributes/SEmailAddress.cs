@@ -24,10 +24,13 @@ namespace SAttributes.ValidationAttributes
             {
                 String val = value.ToString();
 
-                if (!val.Contains("@"))
+                if (val.Length > 0) 
                 {
-                    httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(ErrorMessage);
+                    if (!val.Contains("@"))
+                    {
+                        httpContext.Items[validationContext.MemberName] = ErrorMessage;
+                        return new ValidationResult(ErrorMessage);
+                    }
                 }
             }
 

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SAttribute</id>
-    <version>1.0.0.9</version>
+    <version>1.0.1.9</version>
     <title>You can disabled requirements attributes.</title>
     <authors>Emre Sever</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,7 +11,7 @@
     <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
     <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
     <description>Custom .Net Core Attribute Package. This attributes eliminating requirements.</description>
-    <releaseNotes>Changed dependenyc version</releaseNotes>
+    <releaseNotes>SEmailAddress added.</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Attributes NetCoreAttribute EliminatingRequirements SAttribute</tags>
   </metadata>
