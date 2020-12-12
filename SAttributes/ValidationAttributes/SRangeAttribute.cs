@@ -27,7 +27,7 @@ namespace SAttributes.ValidationAttributes
             if (objectType.IsAssignableFrom(typeof(decimal)) || objectType.IsAssignableFrom(typeof(int)) || objectType.IsAssignableFrom(typeof(float)) || objectType.IsAssignableFrom(typeof(double))) { }
             else throw new InvalidOperationException("This attribute can only be used in data types that contain numbers.");
             
-            if (value == null || value.Equals(""))
+            if (value == null)
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
                 return new ValidationResult(ErrorMessage);
