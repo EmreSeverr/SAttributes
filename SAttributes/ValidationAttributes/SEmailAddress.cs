@@ -11,10 +11,6 @@ namespace SAttributes.ValidationAttributes
         {
             var httpContext = validationContext.GetRequiredService<IHttpContextAccessor>().HttpContext;
 
-            var objectType = value.GetType();
-
-            if (!objectType.IsAssignableFrom(typeof(string))) throw new InvalidOperationException("This attribute can only be used in data types that contain string.");
-
             if (value == null)
             {
                 httpContext.Items[validationContext.MemberName] = ErrorMessage;
@@ -22,6 +18,10 @@ namespace SAttributes.ValidationAttributes
             }
             else
             {
+                var objectType = value.GetType();
+
+                if (!objectType.IsAssignableFrom(typeof(string))) throw new InvalidOperationException("This attribute can only be used in data types that contain string.");
+
                 String val = value.ToString();
 
                 if (val.Length > 0) 
