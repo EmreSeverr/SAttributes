@@ -11,12 +11,7 @@ namespace SAttributes.ValidationAttributes
         {
             var httpContext = validationContext.GetRequiredService<IHttpContextAccessor>().HttpContext;
 
-            if (value == null)
-            {
-                httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                return new ValidationResult(ErrorMessage);
-            }
-            else
+            if(value != null)
             {
                 var objectType = value.GetType();
 

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SAttribute</id>
-    <version>1.0.2.9</version>
+    <version>1.0.4.9</version>
     <title>You can disabled requirements attributes.</title>
     <authors>Emre Sever</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
