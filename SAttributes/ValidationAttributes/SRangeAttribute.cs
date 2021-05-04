@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace SAttributes.ValidationAttributes
 {
     public class SRangeAttribute : ValidationAttribute
     {
         private readonly int _MinValue;
-        private readonly int _MaxValue;
+        private readonly int? _MaxValue;
+
+        public SRangeAttribute(int minValue)
+        {
+            _MinValue = minValue;
+            _MaxValue = null;
+        }
 
         public SRangeAttribute(int minValue, int maxValue)
         {
@@ -41,10 +45,13 @@ namespace SAttributes.ValidationAttributes
                     httpContext.Items[validationContext.MemberName] = ErrorMessage;
                     return new ValidationResult(ErrorMessage);
                 }
-                if (number > _MaxValue)
+                if (_MaxValue != null)
                 {
-                    httpContext.Items[validationContext.MemberName] = ErrorMessage;
-                    return new ValidationResult(ErrorMessage);
+                    if (number > _MaxValue)
+                    {
+                        httpContext.Items[validationContext.MemberName] = ErrorMessage;
+                        return new ValidationResult(ErrorMessage);
+                    }
                 }
             }
 
