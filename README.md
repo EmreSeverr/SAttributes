@@ -1,9 +1,15 @@
-# SAttributes
+<h2 align="center">SAttributes</h2>
 
-[![NuGet](https://img.shields.io/nuget/dt/SAttribute)](https://www.nuget.org/packages/SAttribute/) 
-[![NuGet](https://img.shields.io/nuget/v/SAttribute)](https://www.nuget.org/packages/SAttribute/) 
+<div align="center"> 
 
-This package is written for .net core 3.1. You can cancel the requirements you have written in your DTO objects at any time.
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/EmreSeverr/SAttributes/blob/master/LICENSE) 
+[![NuGet](https://img.shields.io/nuget/v/SAttribute)](https://www.nuget.org/packages/SAttributes/) 
+[![NuGet](https://img.shields.io/nuget/dt/SAttribute)](https://www.nuget.org/packages/SAttributes/) 
+[![Nuget Package](https://github.com/EmreSeverr/SAttributes/actions/workflows/ciNuget.yml/badge.svg?branch=master)](https://github.com/EmreSeverr/SAttributes/actions/workflows/ciNuget.yml)
+
+</div>
+
+You can cancel the requirements you have written in your DTO objects at any time.
 Firstly you must type this 
 
 ```c#
