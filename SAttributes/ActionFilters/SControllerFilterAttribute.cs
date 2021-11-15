@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using SAttributes.Exceptions;
 using SAttributes.Extensions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +9,7 @@ namespace SAttributes.ActionFilters
 {
     public class SControllerFilterAttribute : ActionFilterAttribute
     {
-        public String RequirementDisabledProperties { get; set; }
+        public string RequirementDisabledProperties { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext actionContext)
         {

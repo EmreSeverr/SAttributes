@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections;
 
@@ -13,11 +12,10 @@ namespace SAttributes.Extensions
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            service.AddHttpContextAccessor();
         }
 
-        internal static bool IsNullOrEmpty(this IEnumerable @this)
-        {
-            return @this == null || @this.GetEnumerator().MoveNext() == false;
-        }
+        internal static bool IsNullOrEmpty(this IEnumerable @this) => @this == null || @this.GetEnumerator().MoveNext() == false;
     }
 }

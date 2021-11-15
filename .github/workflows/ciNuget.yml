@@ -1,0 +1,32 @@
+name: "Nuget ci"
+
+on:
+ push:
+    branches: [ master ]
+
+ pull_request:
+    branches: [ master ]
+
+env:
+  PROJECT_PATH: SAttributes/SAttributes.csproj
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Install dependencies
+      run: dotnet restore ${{ env.PROJECT_PATH }}
+    - name: Build
+      run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:   
+       PROJECT_FILE_PATH: ${{ env.PROJECT_PATH }}
+       NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
