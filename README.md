@@ -14,7 +14,6 @@ Firstly you must type this
 
 ```c#
 ...
-services.AddHttpContextAccessor();
 services.ConfigureSAttributes();
 ...
 ```
